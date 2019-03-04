@@ -1,0 +1,32 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: domain-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: gp2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+logging:
+  pattern:
+    console: "%clr(%d{yy-MM-dd HH:mm:ss.SSS}){blue} %clr(%-5p) %clr(${PID}){faint} %clr(---){faint} %clr([%15.15t]){cyan} %-70.70clr(%logger{0} [%M]){blue} %-3clr(:){red} %clr(%msg){faint}%n"
+
+
+
