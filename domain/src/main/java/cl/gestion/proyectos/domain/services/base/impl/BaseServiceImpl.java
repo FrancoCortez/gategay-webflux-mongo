@@ -48,6 +48,8 @@ public class BaseServiceImpl<T extends BaseEntity, ID extends String, R extends 
             }
             T entity = this.tClass;
             BeanUtils.copyProperties(request, entity);
+            entity.set_id(null);
+            entity.setAuditing(null);
             entity.setAuditing(this.generateAuditingEntity(entity.getAuditing()));
             return this.tidBaseRepository.insert(entity);
         } catch (Exception ex) {

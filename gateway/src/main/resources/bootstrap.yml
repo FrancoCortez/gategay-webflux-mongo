@@ -22,6 +22,12 @@ spring:
             - Path=/domain-service/**
           filters:
             - RewritePath=/domain-service/(?<path>.*), /$\{path}
+        - id: user-service
+          uri: lb://user-service
+            predicates:
+              - Path=/user-service/**
+            filters:
+              - RewritePath=/user-service/(?<path>.*), /$\{path}
 
 management:
   endpoints:
